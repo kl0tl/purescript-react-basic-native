@@ -10,6 +10,8 @@ import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data NativeSyntheticEvent :: Type -> Type
 
+type role NativeSyntheticEvent representational
+
 type EventHandler e = EffectFn1 (NativeSyntheticEvent e) Unit
 
 handler :: forall e a. EventFn (NativeSyntheticEvent e) a -> (a -> Effect Unit) -> EventHandler e
